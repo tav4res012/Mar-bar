@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitar Agendamento | Empresa</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="agendamento.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-leaf-left"></div>
+        <div class="header-leaf-right"></div>
+
+        <div class="header-inner">
+            <span class="brand-tag">Reserva de Eventos</span>
+            <h1 class="logo-title">Agendamento</h1>
+            <p class="logo-subtitle">Preencha os dados abaixo para solicitar o seu evento</p>
+        </div>
+        <nav class="nav-container booking-nav">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="menu-wrapper">
+        <section class="booking-section">
+            <div class="category-header">
+                <h2>Dados do Agendamento</h2>
+                <span class="category-info">Atendimento Sob Medida</span>
+            </div>
+
+            <form id="booking-form" class="booking-form">
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" class="form-input" placeholder="Digite seu nome completo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="nascimento">Data de Nascimento</label>
+                    <input type="date" id="nascimento" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="endereco">Endereço Completo</label>
+                    <input type="text" id="endereco" class="form-input" placeholder="Rua, número, bairro, cidade e CEP" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="data-evento">Data do Evento</label>
+                        <input type="date" id="data-evento" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="horario">Horário do Evento</label>
+                        <input type="text" id="horario" class="form-input" placeholder="Ex: 19:30 ou 19h30" required>
+                    </div>
+                </div>
+
+                <div class="form-action">
+                    <button type="submit" id="btn-submit" class="btn-submit" disabled>Solicitar Agendamento</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer id="contato" class="footer">
+        <div class="footer-grid">
+            <div class="footer-info">
+                <h3>Empresa</h3>
+                <p>Especialistas em transformar eventos em experiências marcantes através de bebidas autorais e atendimento exclusivo.</p>
+            </div>
+            <div class="footer-contact">
+                <h3>Central de Atendimento</h3>
+                <p><i class="fa-solid fa-phone"></i> (00) 90000-0000</p>
+                <p><i class="fa-solid fa-envelope"></i> contato@empresa.com.br</p>
+                <p><i class="fa-solid fa-location-dot"></i> Atendimento sob medida para festas e eventos</p>
+            </div>
+        </div>
+        <div class="footer-copy">
+            <p>&copy; 2026 Empresa. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const form = document.getElementById('booking-form');
+        const submitBtn = document.getElementById('btn-submit');
+        const inputs = form.querySelectorAll('.form-input');
+
+        function checkInputs() {
+            let allFilled = true;
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    allFilled = false;
+                }
+            });
+
+            if (allFilled) {
+                submitBtn.disabled = false;
+                submitBtn.classList.add('visible');
+            } else {
+                submitBtn.disabled = true;
+                submitBtn.classList.remove('visible');
+            }
+        }
+
+        inputs.forEach(input => {
+            input.addEventListener('input', checkInputs);
+            input.addEventListener('change', checkInputs);
+        });
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Solicitação enviada com sucesso! Entraremos em contato em breve.');
+            form.reset();
+            checkInputs();
+        });
+    </script>
+
+</body>
+</html>

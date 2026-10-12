@@ -1,0 +1,457 @@
+:root {
+    --bg-deep: #0D2318;
+    --bg-card: #153423;
+    --bg-hover: #1B422D;
+    --green-primary: #285A3F;
+    --green-accent: #4E875C;
+    --green-light: #A3C1AD;
+    --beige-soft: #F4EEDC;
+    --beige-muted: #D3C5AB;
+    --text-main: #F4EEDC;
+    --text-muted: #B8C5BD;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-deep);
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-main);
+    min-height: 100vh;
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+.header {
+    background: linear-gradient(180deg, #05100B 0%, var(--bg-deep) 100%);
+    border-bottom: 1px solid rgba(211, 197, 171, 0.15);
+    padding: 5rem 1.5rem 2.5rem 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.header-leaf-left,
+.header-leaf-right {
+    position: absolute;
+    top: 0;
+    width: 260px;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.18;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.header-leaf-left {
+    left: -20px;
+    background-position: top left;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23D3C5AB' d='M10,0 C30,20 20,50 0,70 C40,60 50,20 10,0 Z M30,10 C50,30 40,70 10,90 C60,70 70,30 30,10 Z'/%3E%3C/svg%3E");
+}
+
+.header-leaf-right {
+    right: -20px;
+    background-position: top right;
+    transform: scaleX(-1);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23D3C5AB' d='M10,0 C30,20 20,50 0,70 C40,60 50,20 10,0 Z M30,10 C50,30 40,70 10,90 C60,70 70,30 30,10 Z'/%3E%3C/svg%3E");
+}
+
+.header-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.brand-tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--beige-muted);
+    background: rgba(211, 197, 171, 0.08);
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(211, 197, 171, 0.12);
+}
+
+.logo-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--beige-soft);
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.logo-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    letter-spacing: 1.2px;
+}
+
+.nav-container {
+    margin-top: 3rem;
+    position: relative;
+    z-index: 2;
+}
+
+.nav-container ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.nav-container a {
+    color: var(--beige-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    transition: var(--transition);
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-container a:hover {
+    color: var(--beige-soft);
+    border-bottom-color: var(--beige-muted);
+}
+
+.menu-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+}
+
+.menu-category {
+    margin-bottom: 4rem;
+}
+
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid rgba(211, 197, 171, 0.2);
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.category-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: var(--beige-soft);
+    letter-spacing: 1px;
+}
+
+.category-info {
+    font-size: 0.95rem;
+    color: var(--beige-muted);
+    background: var(--bg-card);
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid rgba(211, 197, 171, 0.1);
+    font-weight: 500;
+}
+
+.drinks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.drink-card {
+    background-color: var(--bg-card);
+    border: 1px solid rgba(211, 197, 171, 0.08);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    transition: var(--transition);
+}
+
+.drink-card:hover {
+    background-color: var(--bg-hover);
+    transform: translateY(-3px);
+    border-color: rgba(211, 197, 171, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.drink-avatar {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    background-color: var(--green-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--beige-soft);
+    font-size: 1.25rem;
+    border: 1px solid rgba(211, 197, 171, 0.15);
+    transition: var(--transition);
+}
+
+.drink-card:hover .drink-avatar {
+    background-color: var(--green-accent);
+    transform: scale(1.05);
+}
+
+.drink-details h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--beige-soft);
+    margin-bottom: 0.35rem;
+}
+
+.drink-details p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.drink-flavor {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--beige-muted);
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+.booking-cta {
+    padding: 3rem 1.5rem;
+    text-align: center;
+    background-color: var(--bg-card);
+    border-top: 1px solid rgba(211, 197, 171, 0.12);
+}
+
+.booking-cta h2 {
+    margin-bottom: 1.25rem;
+    color: var(--beige-soft);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+}
+
+.booking-cta-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.5rem;
+    border: 1px solid rgba(211, 197, 171, 0.3);
+    border-radius: 6px;
+    background-color: var(--green-primary);
+    color: var(--beige-soft);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.booking-cta-link:hover,
+.booking-cta-link:focus-visible {
+    background-color: var(--green-accent);
+    outline: 2px solid var(--beige-muted);
+    outline-offset: 3px;
+}
+
+.footer {
+    background-color: #05100B;
+    border-top: 1px solid rgba(211, 197, 171, 0.15);
+    padding: 4rem 1.5rem 2rem 1.5rem;
+    margin-top: 4rem;
+}
+
+.footer-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-info h3, 
+.footer-contact h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--beige-soft);
+    margin-bottom: 1rem;
+}
+
+.footer-info p, 
+.footer-contact p {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.footer-contact p i {
+    color: var(--beige-muted);
+    margin-right: 8px;
+}
+
+.footer-copy {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(211, 197, 171, 0.08);
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+@media (max-width: 640px) {
+    .header {
+        padding: 3.5rem 1rem 2rem;
+    }
+
+    .header-leaf-left,
+    .header-leaf-right {
+        width: 150px;
+        opacity: 0.1;
+    }
+
+    .brand-tag {
+        letter-spacing: 0;
+    }
+
+    .logo-title {
+        font-size: 3.5rem;
+        letter-spacing: 0;
+    }
+
+    .logo-subtitle {
+        max-width: 32rem;
+        margin: 0 auto;
+        font-size: 1rem;
+        letter-spacing: 0;
+    }
+
+    .nav-container {
+        margin-top: 2rem;
+    }
+
+    .nav-container ul {
+        gap: 0.5rem 1rem;
+    }
+
+    .nav-container a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 0.5rem 0.25rem;
+        font-size: 0.85rem;
+        letter-spacing: 0;
+    }
+
+    .menu-wrapper {
+        padding: 2.5rem 1rem;
+    }
+
+    .menu-category {
+        margin-bottom: 3rem;
+    }
+
+    .category-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .category-header h2 {
+        font-size: 2rem;
+        letter-spacing: 0;
+    }
+
+    .drinks-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1rem;
+    }
+
+    .drink-card {
+        gap: 1rem;
+        padding: 1.1rem;
+    }
+
+    .drink-avatar {
+        width: 52px;
+        min-width: 52px;
+        height: 52px;
+    }
+
+    .drink-details {
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .booking-cta {
+        padding: 2.5rem 1rem;
+    }
+
+    .booking-cta h2 {
+        font-size: 1.75rem;
+        letter-spacing: 0;
+    }
+
+    .booking-cta-link {
+        min-height: 44px;
+        max-width: 100%;
+    }
+
+    .footer {
+        margin-top: 2.5rem;
+        padding: 3rem 1rem 1.5rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .footer-copy {
+        padding-top: 1.5rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .logo-title {
+        font-size: 3rem;
+    }
+
+    .brand-tag {
+        font-size: 0.72rem;
+        padding: 6px 12px;
+    }
+
+    .nav-container ul {
+        column-gap: 0.5rem;
+    }
+
+    .drink-card {
+        gap: 0.75rem;
+        padding: 1rem;
+    }
+
+    .drink-avatar {
+        width: 46px;
+        min-width: 46px;
+        height: 46px;
+    }
+}

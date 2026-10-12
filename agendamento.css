@@ -1,0 +1,134 @@
+.booking-nav ul {
+    gap: 0;
+}
+
+.booking-nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.6rem 1.25rem;
+    border: 1px solid rgba(211, 197, 171, 0.25);
+    border-radius: 6px;
+}
+
+.booking-section {
+    background-color: var(--bg-card);
+    border: 1px solid rgba(211, 197, 171, 0.12);
+    border-radius: 16px;
+    padding: 2.5rem;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.form-group label {
+    font-size: 0.95rem;
+    color: var(--beige-soft);
+    font-weight: 500;
+}
+
+.form-input {
+    background-color: var(--bg-deep);
+    border: 1px solid rgba(211, 197, 171, 0.2);
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    color: var(--beige-soft);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+.form-input:focus {
+    border-color: var(--beige-muted);
+    box-shadow: 0 0 0 2px rgba(211, 197, 171, 0.1);
+}
+
+.form-input::placeholder {
+    color: rgba(184, 197, 189, 0.4);
+}
+
+.form-action {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-submit {
+    background-color: var(--green-primary);
+    color: var(--beige-soft);
+    border: 1px solid rgba(211, 197, 171, 0.3);
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-radius: 30px;
+    cursor: not-allowed;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: var(--transition);
+}
+
+.btn-submit.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    cursor: pointer;
+    background-color: var(--green-accent);
+}
+
+.btn-submit.visible:hover {
+    background-color: var(--beige-muted);
+    color: var(--bg-deep);
+}
+
+@media (max-width: 640px) {
+    .booking-section {
+        padding: 1.25rem;
+        border-radius: 12px;
+    }
+
+    .booking-form {
+        gap: 1.25rem;
+    }
+
+    .form-row {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.25rem;
+    }
+
+    .form-input {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .btn-submit {
+        width: 100%;
+        max-width: 24rem;
+        min-height: 48px;
+        padding: 0.9rem 0.75rem;
+        font-size: 0.875rem;
+        letter-spacing: 0.5px;
+        line-height: 1.35;
+    }
+}
